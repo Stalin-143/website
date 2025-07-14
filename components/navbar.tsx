@@ -72,7 +72,7 @@ export function Navbar() {
               size="sm"
               className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black bg-transparent"
             >
-              <a href="https://monitor.nexulean.tech" target="_blank" rel="noopener noreferrer">
+              <a href="https://monitor.nexulean.info" target="_blank" rel="noopener noreferrer">
                 Monitoring
               </a>
             </Button>
