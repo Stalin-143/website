@@ -234,7 +234,7 @@ export default function ContactPage() {
                   asChild
                   className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700"
                 >
-                  <a href="https://monitor.nexulean.tech" target="_blank" rel="noopener noreferrer">
+                  <a href="https://monitor.nexulean.info" target="_blank" rel="noopener noreferrer">
                     View Monitoring Dashboard
                   </a>
                 </Button>
