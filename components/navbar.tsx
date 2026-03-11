@@ -76,7 +76,7 @@ export function Navbar() {
                 Monitoring
               </a>
             </Button>
-            {user ? (
+            {user && (
               <div className="flex items-center space-x-4">
                 <Link href="/dashboard" className="text-sm font-medium text-gray-300 hover:text-cyan-400">
                   Dashboard
@@ -86,24 +86,6 @@ export function Navbar() {
                 </Link>
                 <Button onClick={handleLogout} variant="ghost" size="sm" className="text-gray-300 hover:text-cyan-400">
                   Logout
-                </Button>
-              </div>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <Button
-                  asChild
-                  size="sm"
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700"
-                >
-                  <Link href="/login">Login</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black bg-transparent"
-                >
-                  <Link href="/signup">Sign Up</Link>
                 </Button>
               </div>
             )}
@@ -151,7 +133,7 @@ export function Navbar() {
               >
                 Real-Time Monitoring
               </a>
-              {user ? (
+              {user && (
                 <>
                   <Link
                     href="/dashboard"
@@ -176,23 +158,6 @@ export function Navbar() {
                   >
                     Logout
                   </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
-                    onClick={() => setIsOpen(false)}
-                    className="text-sm font-medium text-cyan-400 hover:text-cyan-300"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    onClick={() => setIsOpen(false)}
-                    className="text-sm font-medium text-cyan-400 hover:text-cyan-300"
-                  >
-                    Sign Up
-                  </Link>
                 </>
               )}
             </div>
