@@ -22,6 +22,7 @@
   - [Running Locally](#running-locally)
 - [Project Structure](#project-structure)
 - [Deployment](#deployment)
+- [Cleaning Commit History](#cleaning-commit-history)
 - [Security](#security)
 - [Contributing](#contributing)
 - [License](#license)
@@ -179,6 +180,64 @@ Security headers (configured in `netlify.toml`):
 | `Referrer-Policy` | `strict-origin-when-cross-origin` |
 
 To deploy your own fork, connect the repository to Netlify and set the environment variables listed above in the Netlify dashboard under **Site settings → Environment variables**.
+
+---
+
+## Cleaning Commit History
+
+Sometimes you may want to erase the entire git commit history and start fresh — for example, when sensitive data (such as API keys) was accidentally committed in an earlier commit and you want to permanently remove it from history.
+
+> **Will my site still work after deleting history?**
+> **Yes, absolutely.** Git history is only metadata about how the code changed over time. Your actual site files are not affected. Netlify will continue to build and deploy your site exactly as before.
+
+### Steps to clean history
+
+A helper script is included in this repository: [`clean-history.sh`](./clean-history.sh)
+
+```bash
+# 1. Make sure all your changes are committed
+git status
+
+# 2. Make the script executable
+chmod +x clean-history.sh
+
+# 3. Run the script (defaults to 'main' branch)
+./clean-history.sh
+
+# To target a different branch name, pass it as an argument:
+./clean-history.sh develop
+```
+
+The script will:
+1. Create a new orphan branch (zero history) containing all current files
+2. Replace the existing `main` branch with this clean version
+3. Force-push to GitHub, overwriting the old history
+
+> ⚠️ **This is irreversible.** Once force-pushed, the old commits are gone permanently. If you need to keep a copy of the old history, create a backup branch first:
+> ```bash
+> git branch backup-old-history
+> git push origin backup-old-history
+> ```
+
+### Manual steps (without the script)
+
+```bash
+# 1. Create an orphan branch
+git checkout --orphan temp-clean
+
+# 2. Stage all files
+git add -A
+
+# 3. Create a fresh initial commit
+git commit -m "Initial commit"
+
+# 4. Delete the old main branch and rename this one
+git branch -D main
+git branch -m main
+
+# 5. Force-push to GitHub
+git push --force origin main
+```
 
 ---
 
