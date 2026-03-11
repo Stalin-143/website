@@ -1,7 +1,13 @@
 {
-  "name": "my-v0-project",
+  "name": "@stalin-143/website",
   "version": "2.0.0",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stalin-143/website.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
