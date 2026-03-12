@@ -81,8 +81,19 @@ export default function ProjectsPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+    if (!accessKey) {
+      toast({
+        title: "Configuration error",
+        description: "Contact form is not configured. Please reach out directly on LinkedIn.",
+        variant: "destructive",
+      })
+      setIsSubmitting(false)
+      return
+    }
+
     const formData = new FormData(e.currentTarget)
-    formData.append("access_key", "ae8949e6-c3ee-464a-8dc2-07f8dd7b99bc")
+    formData.append("access_key", accessKey)
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
