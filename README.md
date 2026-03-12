@@ -282,5 +282,5 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  &copy; 2026 Nexulean. All rights reserved. | Ethical Hacking &amp; AI Security Solutions
+  &copy; 2026 Nexulean. All rights reserved. | Ethical Hacking &amp; AI Security Solutions.
 </p>
